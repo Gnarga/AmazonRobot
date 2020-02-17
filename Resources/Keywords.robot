@@ -1,14 +1,13 @@
 *** Variables ***
 ${BROWSER}   chrome
 ${URL}   http://wwww.amazon.com
+${shopping_cart}    id:nav-cart-count
 
 *** Keywords ***
 Begin Web Test
     Open Browser                    about:blank  ${BROWSER}
     Set Selenium Speed              0.5
     Maximize Browser Window
-
-
 
 Go To Web Page
     Load Page
@@ -37,6 +36,9 @@ Verify Search Complete
     [Arguments]                     ${search_term}      ${search_result}
     ${result_text} =                Set Variable        results for "${search_term}"
     Should Be Equal                 ${result_text}      ${search_result}
+
+Click Add To Cart Button
+    Click Button
 
 End Web Test
     Close Browser
