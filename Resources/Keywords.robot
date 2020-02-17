@@ -5,7 +5,7 @@ ${shopping_cart}    id:nav-cart-count
 
 *** Keywords ***
 Begin Web Test
-    Open Browser                    about:blank  ${BROWSER}
+    Open Browser                    about:blank  ${BROWSER}  #headlesschrome för att köra utan att visa fönstret
     Set Selenium Speed              0.5
     Maximize Browser Window
 
@@ -38,7 +38,14 @@ Verify Search Complete
     Should Be Equal                 ${result_text}      ${search_result}
 
 Click Add To Cart Button
-    Click Button
+    Click Button                    id:add-to-cart-button
+
+Click View Cart
+    Click Element                   xpath://*[@id="hlb-view-cart-announce"]
+
+Verify Cart
+    [Arguments]                     ${cart_result}
+    Element Should Contain          xpath://span[@class='a-size-medium sc-product-title']   ${cart_result}
 
 End Web Test
     Close Browser
@@ -47,7 +54,7 @@ user is at Amazon landingpage
     Load Page
     Verify Page Loaded
 
-user search for for ferrari 458
+user search for ferrari 458
     Input Text                      id:twotabsearchtextbox  ferrari 458
 
 user presses search buttton
