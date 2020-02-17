@@ -1,6 +1,7 @@
 *** Settings ***
 Documentation                           Amazon.com search cases
 Library                                 SeleniumLibrary
+Resource                                ../Resources/Keywords.robot
 Test Setup                              Begin Web Test
 Test Teardown                           End Web Test
 
@@ -15,9 +16,9 @@ Add item to cart and check its there
     Click Add To Cart Button
     Element Should Contain              ${shopping_cart}  1
     Click View Cart
-    VeriFy Cart                         Ferrari 458
+    Verify Cart                         Ferrari 458
 
-Computers & Accessories
+Computers & Accessories With Alexa
     [Documentation]                     Checkboxes
     [Tags]                              Test2
     Go To Webpage
@@ -51,6 +52,7 @@ Shopping cart max
     Go To Web Page
     Search For Product                  ferrari 458  results for "ferrari 458"
     Click Element                       Xpath=//img[@alt='Ferrari 458 Italia Red 1/24 by Bburago 26003']
+    Click Add To Cart Button
     Click View Cart
     Select From List By Value           name=quantity    9
     Element Should Contain              name=quantity    8

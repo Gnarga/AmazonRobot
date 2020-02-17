@@ -1,7 +1,7 @@
 *** Variables ***
-${BROWSER}   chrome
-${URL}   http://wwww.amazon.com
-${shopping_cart}    id:nav-cart-count
+${BROWSER}                          headlesschrome
+${URL}                              http://wwww.amazon.com
+${shopping_cart}                    id:nav-cart-count
 
 *** Keywords ***
 Begin Web Test
@@ -61,4 +61,4 @@ user presses search buttton
     Click Button                    xpath://*[@id="nav-search"]/form/div[2]/div/input
 
 results for ferrari 458 should show
-    Wait Until Page Contains    results for "ferrari 458"
+    Wait Until Page Contains        results for "ferrari 458"
