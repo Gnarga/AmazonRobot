@@ -1,5 +1,5 @@
 *** Variables ***
-${BROWSER}                          headlesschrome
+${BROWSER}                          chrome
 ${URL}                              http://wwww.amazon.com
 ${shopping_cart}                    id:nav-cart-count
 
